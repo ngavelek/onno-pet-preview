@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ngavelek.github.io/onno-pet-preview/sitemap.xml
