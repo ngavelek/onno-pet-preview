@@ -7,6 +7,7 @@
   <meta name="description" content="Onno is a kitchen sprinkle that feels fresh in a scoop. A counter object from Pantry LLC, St. Petersburg, FL. Singular. Enduring. Trusted." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://ngavelek.github.io/onno-pet-preview/" />
+  <!-- Primary domain after DNS: https://onno.pet/ — github.io remains until cutover. -->
 
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Onno" />
@@ -31,8 +32,11 @@
 
   <header class="site-header">
     <div class="wrap header-inner">
-      <p class="mark" aria-label="Onno">Onno</p>
-      <p class="header-quiet">coming soon</p>
+      <a class="mark mark-link" href="index.html" aria-label="Onno home">Onno</a>
+      <nav class="header-nav" aria-label="Store">
+        <a href="product.html">Shop mock</a>
+        <a class="bag-link" href="cart.html">Bag <span class="bag-count" data-cart-count hidden>0</span></a>
+      </nav>
     </div>
   </header>
 
@@ -56,8 +60,11 @@
             Soft light. Quiet confidence.
             Singular. Enduring. Trusted.
           </p>
-          <a class="cta" href="mailto:hello@onno.pet?subject=Notify%20me%20when%20Onno%20is%20ready">Notify me</a>
-          <p class="cta-note">No checkout yet — just a note when we’re ready.</p>
+          <div class="hero-ctas">
+            <a class="cta" href="product.html">Shop mock</a>
+            <a class="cta cta-secondary" href="mailto:hello@onno.pet?subject=Notify%20me%20when%20Onno%20is%20ready">Notify me</a>
+          </div>
+          <p class="cta-note">Mock bag &amp; checkout only — no live payments. Working MSRP $32 / 60&nbsp;g.</p>
         </div>
       </div>
     </section>
@@ -95,6 +102,7 @@
             Ingredient names land when our scientist locks the panel.
           </p>
           <p class="fine">Meal topper · kitchen sprinkle · Pantry LLC</p>
+          <p class="fine" style="margin-top:0.75rem">Working MSRP $32</p>
         </div>
       </div>
     </section>
@@ -113,7 +121,10 @@
       <p class="mark-sm">Onno</p>
       <p>Pantry LLC · St. Petersburg, FL</p>
       <p class="fine">Net wt 60&nbsp;g · fresh in a scoop</p>
+      <p class="fine domain-note">Primary domain after DNS: onno.pet · preview: github.io</p>
     </div>
   </footer>
+
+  <script src="store.js"></script>
 </body>
 </html>

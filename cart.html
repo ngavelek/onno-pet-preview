@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bag — Onno</title>
+  <meta name="description" content="Your Onno bag. Storefront mock — not live checkout." />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="canonical" href="https://ngavelek.github.io/onno-pet-preview/cart.html" />
+
+  <meta property="og:title" content="Bag — Onno" />
+  <meta property="og:description" content="Storefront mock — not live checkout." />
+  <meta property="og:image" content="https://ngavelek.github.io/onno-pet-preview/hero.jpg" />
+  <meta property="og:url" content="https://ngavelek.github.io/onno-pet-preview/cart.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%23B8D4E8'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-family='Georgia,serif' font-size='14' fill='%231A2B4A'%3EO%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <div class="mock-banner" role="status">Storefront mock — not live checkout</div>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="mark mark-link" href="index.html" aria-label="Onno home">Onno</a>
+      <nav class="header-nav" aria-label="Store">
+        <a href="product.html">Shop</a>
+        <a class="bag-link" href="cart.html" aria-current="page">Bag <span class="bag-count" data-cart-count hidden>0</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="cart-page">
+    <div class="wrap narrow-ish">
+      <h1 class="page-title">Your bag</h1>
+
+      <div id="cart-empty" class="cart-empty" hidden>
+        <p>Your bag is empty.</p>
+        <a class="cta" href="product.html">Shop Onno</a>
+      </div>
+
+      <div id="cart-filled" hidden>
+        <ul class="cart-lines" id="cart-lines" aria-label="Bag items"></ul>
+        <div class="cart-summary">
+          <div class="summary-row">
+            <span>Subtotal</span>
+            <strong id="cart-subtotal">$0</strong>
+          </div>
+          <p class="fine">Shipping &amp; tax calculated at checkout (mock).</p>
+          <a class="cta cta-block" href="checkout.html">Continue to checkout</a>
+          <a class="text-link center-link" href="product.html">Keep shopping</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p class="mark-sm">Onno</p>
+      <p>Pantry LLC · St. Petersburg, FL</p>
+      <p class="fine">Mock storefront · no charge</p>
+    </div>
+  </footer>
+
+  <script src="store.js"></script>
+  <script>
+    function render() {
+      var cart = OnnoStore.read();
+      var empty = document.getElementById("cart-empty");
+      var filled = document.getElementById("cart-filled");
+      var lines = document.getElementById("cart-lines");
+
+      if (!cart.items.length) {
+        empty.hidden = false;
+        filled.hidden = true;
+        return;
+      }
+      empty.hidden = true;
+      filled.hidden = false;
+      lines.innerHTML = "";
+      cart.items.forEach(function (item) {
+        var li = document.createElement("li");
+        li.className = "cart-line";
+        li.innerHTML =
+          '<div class="line-thumb"><img src="' + item.image + '" alt="" width="80" height="100" /></div>' +
+          '<div class="line-meta">' +
+            '<p class="line-name">' + item.name + '</p>' +
+            '<p class="line-detail">' + item.tagline + ' · ' + item.size + '</p>' +
+            '<p class="line-price">' + OnnoStore.money(item.price) + '</p>' +
+            '<div class="qty-stepper" data-id="' + item.id + '">' +
+              '<button type="button" class="step" data-delta="-1" aria-label="Decrease quantity">−</button>' +
+              '<span class="step-val" aria-live="polite">' + item.qty + '</span>' +
+              '<button type="button" class="step" data-delta="1" aria-label="Increase quantity">+</button>' +
+            '</div>' +
+          '</div>';
+        lines.appendChild(li);
+      });
+      document.getElementById("cart-subtotal").textContent = OnnoStore.money(OnnoStore.subtotal());
+    }
+
+    document.getElementById("cart-lines").addEventListener("click", function (e) {
+      var btn = e.target.closest(".step");
+      if (!btn) return;
+      var stepper = btn.closest(".qty-stepper");
+      var id = stepper.getAttribute("data-id");
+      var item = OnnoStore.read().items.find(function (i) { return i.id === id; });
+      if (!item) return;
+      var next = item.qty + parseInt(btn.getAttribute("data-delta"), 10);
+      OnnoStore.setQty(id, next);
+      render();
+    });
+
+    document.addEventListener("DOMContentLoaded", render);
+  </script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Onno — 60 g · $32</title>
+  <meta name="description" content="Onno kitchen sprinkle, 60 g jar. Fresh in a scoop. Working MSRP $32. Storefront mock — not live checkout." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ngavelek.github.io/onno-pet-preview/product.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Onno — 60 g" />
+  <meta property="og:description" content="Fresh in a scoop. Working MSRP $32. Mock storefront." />
+  <meta property="og:image" content="https://ngavelek.github.io/onno-pet-preview/hero.jpg" />
+  <meta property="og:url" content="https://ngavelek.github.io/onno-pet-preview/product.html" />
+  <meta property="og:site_name" content="Onno" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Onno — 60 g" />
+  <meta name="twitter:description" content="Fresh in a scoop." />
+  <meta name="twitter:image" content="https://ngavelek.github.io/onno-pet-preview/hero.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%23B8D4E8'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-family='Georgia,serif' font-size='14' fill='%231A2B4A'%3EO%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <div class="mock-banner" role="status">Storefront mock — not live checkout</div>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="mark mark-link" href="index.html" aria-label="Onno home">Onno</a>
+      <nav class="header-nav" aria-label="Store">
+        <a href="product.html" aria-current="page">Shop</a>
+        <a class="bag-link" href="cart.html">Bag <span class="bag-count" data-cart-count hidden>0</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="pdp" aria-label="Onno product">
+      <div class="wrap pdp-grid">
+        <figure class="hero-figure pdp-figure">
+          <img
+            src="hero.jpg"
+            width="900"
+            height="1125"
+            alt="Powder blue glitter jar of Onno with navy serif wordmark and the line fresh in a scoop"
+            fetchpriority="high"
+          />
+        </figure>
+
+        <div class="pdp-copy">
+          <p class="eyebrow">Kitchen sprinkle</p>
+          <h1 class="wordmark wordmark-sm">Onno</h1>
+          <p class="tagline">fresh in a scoop</p>
+          <p class="price" aria-label="Price thirty-two dollars">$32 <span class="price-unit">· 60&nbsp;g</span></p>
+          <p class="lede">
+            A quiet jar for the counter.
+            Soft light. Soft scoop.
+            Singular. Enduring. Trusted.
+          </p>
+
+          <div class="buy-row">
+            <label class="qty-field" for="pdp-qty">
+              <span class="qty-label">Qty</span>
+              <input id="pdp-qty" type="number" min="1" max="12" value="1" inputmode="numeric" />
+            </label>
+            <button type="button" class="cta" id="add-to-bag">Add to bag</button>
+          </div>
+          <p class="cta-note" id="add-feedback" hidden>Added to bag.</p>
+
+          <div class="pdp-actions">
+            <a class="cta cta-secondary" href="mailto:hello@onno.pet?subject=Notify%20me%20when%20Onno%20is%20ready">Notify me</a>
+            <a class="text-link" href="cart.html">View bag</a>
+          </div>
+
+          <div class="scoop-notes">
+            <p class="eyebrow">Scoop notes</p>
+            <ul class="scoop-list">
+              <li><span class="frac">¼</span> light sprinkle</li>
+              <li><span class="frac">½</span> everyday scoop</li>
+              <li><span class="frac">¾</span> generous topper</li>
+            </ul>
+            <p class="fine">Serving reference: ¼ teaspoon. Sprinkle over food.</p>
+          </div>
+
+          <p class="maker">Pantry LLC · St. Petersburg, FL</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p class="mark-sm">Onno</p>
+      <p>Pantry LLC · St. Petersburg, FL</p>
+      <p class="fine">Net wt 60&nbsp;g · fresh in a scoop · mock storefront</p>
+      <p class="fine domain-note">Primary domain after DNS: onno.pet · preview: github.io</p>
+    </div>
+  </footer>
+
+  <script src="store.js"></script>
+  <script>
+    document.getElementById("add-to-bag").addEventListener("click", function () {
+      var qty = document.getElementById("pdp-qty").value;
+      OnnoStore.add(qty);
+      var fb = document.getElementById("add-feedback");
+      fb.hidden = false;
+      fb.textContent = "Added " + (parseInt(qty, 10) || 1) + " to bag.";
+    });
+  </script>
+</body>
+</html>

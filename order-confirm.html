@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thank you — Onno (mock)</title>
+  <meta name="description" content="Mock order confirmation. No charge was made." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://ngavelek.github.io/onno-pet-preview/order-confirm.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%23B8D4E8'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-family='Georgia,serif' font-size='14' fill='%231A2B4A'%3EO%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <div class="mock-banner" role="status">Storefront mock — not live checkout · no charge</div>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="mark mark-link" href="index.html" aria-label="Onno home">Onno</a>
+      <nav class="header-nav" aria-label="Store">
+        <a href="product.html">Shop</a>
+        <a class="bag-link" href="cart.html">Bag <span class="bag-count" data-cart-count hidden>0</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="confirm-page">
+    <div class="wrap narrow center">
+      <p class="eyebrow">Mock confirmation</p>
+      <h1 class="page-title">Thank you</h1>
+      <p class="lede center-lede">
+        This was a walkthrough only.
+        No payment was taken. No order was placed.
+      </p>
+      <p class="feel">fresh in a scoop</p>
+      <p class="mock-callout">This is a mock — no charge.</p>
+      <div class="confirm-actions">
+        <a class="cta" href="index.html">Back to home</a>
+        <a class="cta cta-secondary" href="product.html">Shop again</a>
+      </div>
+      <p class="fine" style="margin-top:2rem">Want a real note when Onno is ready?<br />
+        <a href="mailto:hello@onno.pet?subject=Notify%20me%20when%20Onno%20is%20ready">Notify me · hello@onno.pet</a>
+      </p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p class="mark-sm">Onno</p>
+      <p>Pantry LLC · St. Petersburg, FL</p>
+      <p class="fine">Mock storefront · no Shopify checkout</p>
+    </div>
+  </footer>
+
+  <script src="store.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      OnnoStore.clear();
+    });
+  </script>
+</body>
+</html>
